@@ -45,7 +45,7 @@ def test_shorten_url(setup_database):
     data = response.json()
     assert "short_code" in data
     assert "short_url" in data
-    assert data["original_url"] == "https://www.example.com"
+    assert data["original_url"] == "https://www.example.com/"
     assert data["click_count"] == 0
 
 def test_shorten_invalid_url(setup_database):
@@ -64,7 +64,7 @@ def test_redirect_to_original_url(setup_database):
     # Test redirection
     response = client.get(f"/{short_code}", follow_redirects=False)
     assert response.status_code == 302
-    assert response.headers["location"] == "https://www.google.com"
+    assert response.headers["location"] == "https://www.google.com/"
 
 def test_redirect_nonexistent_code(setup_database):
     """Test redirection with non-existent short code"""

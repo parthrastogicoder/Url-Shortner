@@ -13,8 +13,7 @@ class URLResponse(BaseModel):
     created_at: datetime
     click_count: int
     
-    class Config:
-        from_attributes = True
+    model_config = {"from_attributes": True}
 
 class URLStats(BaseModel):
     id: int
@@ -23,5 +22,4 @@ class URLStats(BaseModel):
     created_at: datetime
     click_count: int
     
-    class Config:
-        from_attributes = True
+    model_config = {"from_attributes": True}

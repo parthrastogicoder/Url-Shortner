@@ -1,22 +1,26 @@
 from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
+from contextlib import asynccontextmanager
 from database import get_db, create_tables
 from models import URLCreate, URLResponse, URLStats
 from utils import create_short_url
 import crud
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    create_tables()
+    yield
+    # Shutdown
+
 # Create FastAPI app
 app = FastAPI(
     title="URL Shortener",
     description="A simple URL shortener built with FastAPI and SQLite",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
-
-# Create tables on startup
-@app.on_event("startup")
-def startup_event():
-    create_tables()
 
 @app.get("/")
 def read_root():
