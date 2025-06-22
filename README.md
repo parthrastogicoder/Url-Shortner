@@ -155,28 +155,6 @@ The test suite covers:
    - Pydantic models ensure data integrity
    - Automatic API documentation generation
 
-## 🔄 Development Workflow
-
-### Git Branching Strategy
-
-This project follows a feature-branch workflow:
-
-1. **Create feature branches** for each new feature:
-   ```bash
-   git checkout -b feature/setup-db
-   git checkout -b feature/shorten-url
-   git checkout -b feature/redirect-url
-   git checkout -b feature/test-suite
-   ```
-
-2. **Make 2-3 commits per feature** with concise messages:
-   ```bash
-   git commit -m "init db setup"
-   git commit -m "add table schema"
-   git commit -m "build shorten route"
-   ```
-
-3. **Merge via pull requests** after code review
 
 ### Development Commands
 
@@ -245,28 +223,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 - **Testing:** pytest
 - **Documentation:** Auto-generated with FastAPI
 
-## 📈 Future Enhancements
 
-- [ ] Custom short codes
-- [ ] Expiration dates for URLs
-- [ ] User authentication and personal dashboards
-- [ ] Analytics dashboard
-- [ ] Rate limiting
-- [ ] Caching with Redis
-- [ ] Bulk URL shortening
-- [ ] QR code generation
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
@@ -274,4 +231,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-⭐ **Star this repository** if you find it helpful!
